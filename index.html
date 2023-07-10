@@ -12,7 +12,7 @@
 
         function done() {
             data = $('.sign').jqSignature('getDataURL');
-            $('#form').before('<a class="signature" download="signature.png"><img id="signature"></a>');
+            $('#form').before(`<a class="signature" download="signature_${new Date().getTime()}.png"><img id="signature"></a>`);
             $('#signature').attr('src', data);
             $('.signature').attr('href', data);
             $('#signature').after('<input type="button" value="Re-sign" onclick="window.location.reload()">');
@@ -24,7 +24,7 @@
 
 <div id="form">
     Please sign below
-    <div class='sign' data-width="600" data-height="200" data-border="1px solid red" data-background="#EEEEEE"></div>
+    <div class='sign' data-width="600" data-height="200" data-line-color="#FF0000" data-border="1px solid red" data-background="#EEEEEE"></div>
     <input type="button" value="Done" id="d">
     <input type="button" value="Reset" id="r">
 </div>
