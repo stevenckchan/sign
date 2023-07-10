@@ -4,10 +4,27 @@
     <script src="jq-signature.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('.js-signature').jqSignature();
+            $('.sign').jqSignature();
             console.log('initialized')
+            $("#d").on("click", function() {done()});
+            $("#r").on("click", function() {$('.sign').jqSignature('clearCanvas');});
         });
+
+        function done() {
+            data = $('.sign').jqSignature('getDataURL');
+            $('#form').before('<a class="signature" download="signature.png"><img id="signature"></a>');
+            $('#signature').attr('src', data);
+            $('.signature').attr('href', data);
+            $('#signature').after('<input type="button" value="Re-sign" onclick="window.location.reload()">');
+            $('#form').remove();
+            $('#signature').click()
+        }
     </script>
 </head>
-test page
-<div class='js-signature' data-width="600" data-height="200" data-border="1px solid red" data-background="#EEEEEE"></div>
+
+<div id="form">
+    Please sign below
+    <div class='sign' data-width="600" data-height="200" data-border="1px solid red" data-background="#EEEEEE"></div>
+    <input type="button" value="Done" id="d">
+    <input type="button" value="Reset" id="r">
+</div>
