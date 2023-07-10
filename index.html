@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <head>
-    
     <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
-    <script src="jq-signature.js"></script>
-    <script src="index.js"></script>
+    <script src="jq-signature-min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.js-signature').jqSignature();
+            console.log('initialized')
+        });
+    </script>
 </head>
-
-<div class='js-signature'></div>
+test page
+<div class='js-signature' data-width="600" data-height="200" data-border="1px solid red" data-background="#EEEEEE"></div>
